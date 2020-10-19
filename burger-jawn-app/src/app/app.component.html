@@ -1,0 +1,26 @@
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+<h1>{{title}}</h1>
+
+<table>
+  <tr *ngFor = 'let foodItem of foodMenu' [class.special] = 'foodItem.special'>
+    <td><div id = 'image'><img [src]="foodItem.image" alt=""></div></td>  
+    <td><h2>{{foodItem.item | uppercase }}</h2>
+    <p>{{foodItem.description}}</p>
+    <p class= 'foodInCart' *ngIf = 'foodItem.quantity > 0'> You'll love our {{foodItem.item}}</p>
+    <p class = 'none' *ngIf = 'foodItem.quantity === 0'> No {{foodItem.item}} today?</p>
+  </td>
+    <td><p id="price">Price: {{foodItem.price | currency: 'EUR':true}}</p></td>
+    <td>
+        <button type="button" class="btn btn-light" (click) = 'inc(foodItem)' id="add">+</button>
+      
+      <input type="number" [value] = 'foodItem.quantity' [(ngModel)]='foodItem.quantity'> 
+
+      <button type="button" class="btn btn-light" (click) = 'dec(foodItem)' id="subtract">-</button>
+        
+      
+    </td>   
+  </tr>
+</table>
+<p id="note">Note: You currently have {{totalItems()}} items in yout cart</p>
+<h3>Your total is: {{totalPrice | currency: 'EUR':true}}</h3>

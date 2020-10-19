@@ -1,0 +1,78 @@
+h1{
+    font-family: 'Black Han Sans', sans-serif;
+    text-align: center;
+}
+
+h2{
+    
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+h3{
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+td, th {
+    border: 4px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+
+  img{
+    height: 100px;
+  text-align: center;}
+  
+  #image{
+    text-align: center;
+  }
+
+  .none{
+      color: red;
+      font-weight: bold;
+  }
+
+  #price{
+      color: green;
+  }
+
+  .special{
+      background-color: yellow;
+  }
+
+  #note{
+      text-align: center;
+  }
+
+  table{
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      
+  }
+
+button{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+ button:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#add{
+    background-color: green;
+
+}
+
+#subtract{
+    background-color: red;
+}
+button{
+    border: none;
+}
+
