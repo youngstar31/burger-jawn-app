@@ -3,10 +3,21 @@
 <h1>{{title}}</h1>
 
 <table>
+  <!-- class property binding is being used, 
+    if the class propert 'special' is true it will add the special class if false it will remove it -->
   <tr *ngFor = 'let foodItem of foodMenu' [class.special] = 'foodItem.special'>
-    <td><div id = 'image'><img [src]="foodItem.image" alt=""></div></td>  
+    <!-- *ngFor - structural directive that lets us iterate over foodMenu objects -->
+    
+    <!-- binding the img src to get the foodItem image property -->
+    <td><div id = 'image'><img [src]="foodItem.image" alt=""></div></td> 
+
+    <!-- A pipe takes in data as input and transforms it to a desired output  -->
     <td><h2>{{foodItem.item | uppercase }}</h2>
+
     <p>{{foodItem.description}}</p>
+
+
+    <!-- *ngIf is another structural directive that allows us to evalulate conditionals -->
     <p class= 'foodInCart' *ngIf = 'foodItem.quantity > 0'> You'll love our {{foodItem.item}}</p>
     <p class = 'none' *ngIf = 'foodItem.quantity === 0'> No {{foodItem.item}} today?</p>
   </td>
@@ -14,7 +25,8 @@
     <td>
         <button type="button" class="btn btn-light" (click) = 'inc(foodItem)' id="add">+</button>
       
-      <input type="number" [value] = 'foodItem.quantity' [(ngModel)]='foodItem.quantity'> 
+      <input type="number" [(ngModel)]='foodItem.quantity'>
+      <!-- ngModel is used for two-way binding, allows user to manipulate backend data (whatever the user types in will effect foodItem quantity)-->
 
       <button type="button" class="btn btn-light" (click) = 'dec(foodItem)' id="subtract">-</button>
         
@@ -24,3 +36,5 @@
 </table>
 <p id="note">Note: You currently have {{totalItems()}} items in yout cart</p>
 <h3>Your total is: {{totalPrice | currency: 'EUR':true}}</h3>
+
+<a href="https://www.mcdonalds.com/us/en-us.html"> Check Our Website</a>
